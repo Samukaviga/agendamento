@@ -16,7 +16,7 @@
         <div class=" p-4">02</div>
         <div class=" p-4">03</div>
 
-        <button class="text-white px-4 sm:px-8 py-2 sm:py-3 bg-sky-700 hover:bg-sky-800 mt-4">
+        <button class="text-white px-4 sm:px-8 py-2 sm:py-3 bg-sky-700 rounded-lg hover:bg-sky-800 mt-4">
             Submit
         </button>
     </div>
