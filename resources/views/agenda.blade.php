@@ -22,32 +22,52 @@
 
             <div class="flex flex-col gap-5 h-[500px] w-full md:w-150 overflow-y-auto">
 
-            <div class="lg:w-7/12 md:w-9/12 sm:w-10/12 mx-auto p-4 ">
-                <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-                    <div class="flex items-center justify-between px-6 py-3 bg-gray-700">
-                        <button id="prevMonth" class="text-white">Antes</button>
-                        <h2 id="currentMonth" class="text-white"></h2>
-                        <button id="nextMonth" class="text-white">Proximo</button>
-                    </div>
-                    <div class="grid grid-cols-7 gap-2 p-4" id="calendar">
-                        <!-- Calendar Days Go Here -->
-                    </div>
-                    <div id="myModal" class="modal hidden fixed inset-0 flex items-center justify-center z-50">
-                        <div class="modal-overlay absolute inset-0 bg-black opacity-50"></div>
-
-                        <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
-                            <div class="modal-content py-4 text-left px-6">
-                                <div class="flex justify-between items-center pb-3">
-                                    <p class="text-2xl font-bold">Selected Date</p>
-                                    <button id="closeModal" class="modal-close px-3 py-1 rounded-full bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring">✕</button>
-                                </div>
-                                <div id="modalDate" class="text-xl font-semibold"></div>
-                            </div>
+                <div class="lg:w-7/12 md:w-9/12 sm:w-10/12 mx-auto p-4 ">
+                    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                        <div class="flex items-center justify-between px-6 py-3 bg-gray-700">
+                            <button id="prevMonth" class="text-white">Antes</button>
+                            <h2 id="currentMonth" class="text-white"></h2>
+                            <button id="nextMonth" class="text-white">Proximo</button>
                         </div>
+                        <div class="grid grid-cols-7 gap-2 p-4" id="calendar">
+                            <!-- Calendar Days Go Here -->
+                        </div>
+                        <div id="myModal" class="modal hidden fixed inset-0 flex items-center justify-center z-50">
+                            <div class="modal-overlay absolute inset-0 bg-black opacity-50"></div>
 
+                            <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+                                <div class="modal-content py-4 text-left px-6">
+                                    <div class="flex justify-between items-center pb-3">
+                                        <p class="text-2xl font-bold">Selected Date</p>
+                                        <button id="closeModal" class="modal-close px-3 py-1 rounded-full bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring">✕</button>
+                                    </div>
+                                    <div id="modalDate" class="text-xl font-semibold"></div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
-            </div>
+
+                <ul id="timetable" class="flex w-full gap-5 mt-5 justify-center place-items-center">
+                   
+                    <li>
+                        <input type="radio" id="10-30" value="" class="hidden peer" name="timetable">
+                        <label for="3-30-pm"
+                            class="inline-flex items-center justify-center w-22 p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-blue-600 border-blue-600  peer-checked:border-blue-600 peer-checked:bg-blue-600 hover:text-white peer-checked:text-white   hover:bg-blue-500 ">
+                            10:30
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="radio" id="11-00" value="" class="hidden peer" name="timetable">
+                        <label for="3-30-pm"
+                            class="inline-flex items-center justify-center w-22 p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-blue-600 border-blue-600  peer-checked:border-blue-600 peer-checked:bg-blue-600 hover:text-white peer-checked:text-white   hover:bg-blue-500 ">
+                            11:00
+                        </label>
+                    </li>
+
+                </ul>
 
 
             </div>
@@ -66,6 +86,16 @@
 
 
     <script>
+        function vaga() {
+
+              return vagas = [
+                    { 
+                        mes: '2',
+                        dia: '10',
+                    }
+                ]
+        }
+
         // Função para gerar o calendário de um mês e ano específicos
         function generateCalendar(year, month) {
             const calendarElement = document.getElementById('calendar');
@@ -134,8 +164,12 @@
                     };
                     const formattedDate = selectedDate.toLocaleDateString(undefined, options);
                     //showModal(formattedDate);
-                    console.log('Data selecionada:', formattedDate);
-                    
+
+                    const vagas = vaga();
+
+                    console.log(vaga[0]);
+                    console.log('Data selecionada:', month);
+
                 });
             });
         }
